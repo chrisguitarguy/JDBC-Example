@@ -1,0 +1,20 @@
+apply plugin: 'java'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile 'mysql:mysql-connector-java:5.1.32'
+    testCompile 'junit:junit:4.11'
+}
+
+test {
+    testLogging {
+        events "passed", "skipped", "failed"
+    }
+
+    onOutput { descriptor, event ->
+        logger.error("Test " + descriptor + ": " + event.message)
+    }
+}
