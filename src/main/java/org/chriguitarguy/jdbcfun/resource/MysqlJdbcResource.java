@@ -95,11 +95,20 @@ public class MysqlJdbcResource implements Resource<Connection>
 
     private String createJdbcUri(URI uri)
     {
-        return String.format(
-            "jdbc:mysql://%s/%s",
-            uri.getHost(),
-            uri.getPath().replaceAll("^/", "")
-        );
+        if (uri.getPort() < 0) {
+            return String.format(
+                "jdbc:mysql://%s%s",
+                uri.getHost(),
+                uri.getPath()
+            );
+        } else {
+            return String.format(
+                "jdbc:mysql://%s:%s%s",
+                uri.getHost(),
+                uri.getPort(),
+                uri.getPath()
+            );
+        }
     }
 
     private Properties createJdbcProperties(URI uri)
