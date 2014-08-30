@@ -6,9 +6,9 @@ package org.chrisguitarguy.jdbcfun.user;
 
 public interface User
 {
-    public Integer getIdentifier();
-
     public boolean hasIdentifier();
+
+    public Integer getIdentifier();
 
     public String getUsername();
 

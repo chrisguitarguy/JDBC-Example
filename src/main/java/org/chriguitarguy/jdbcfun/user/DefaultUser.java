@@ -20,6 +20,18 @@ public class DefaultUser implements User
         this(null);
     }
 
+    public DefaultUser(Integer id, String username, String role)
+    {
+        this.id = id;
+        this.username = username;
+        this.role = role;
+    }
+
+    public DefaultUser(String username, String role)
+    {
+        this(null, username, role);
+    }
+
     public boolean hasIdentifier()
     {
         return null != id;
