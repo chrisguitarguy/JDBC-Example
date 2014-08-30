@@ -1,0 +1,7 @@
+CREATE TABLE IF NOT EXISTS users (
+    id INTEGER NOT NULL AUTO_INCREMENT,
+    username VARCHAR(255) NOT NULL,
+    role VARCHAR(255) DEFAULT NULL,
+    PRIMARY KEY (id),
+    UNIQUE KEY username_uniq (username)
+) ENGINE=InnoDB, CHARACTER SET utf8;
