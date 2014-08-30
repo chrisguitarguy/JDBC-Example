@@ -13,8 +13,4 @@ test {
     testLogging {
         events "passed", "skipped", "failed"
     }
-
-    onOutput { descriptor, event ->
-        logger.error("Test " + descriptor + ": " + event.message)
-    }
 }
